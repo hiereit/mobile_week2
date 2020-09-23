@@ -14,7 +14,14 @@ public class ContactDto implements Serializable {
 	private String name;
 	private String phone;
 	private String category;
-	
+
+	public ContactDto() {
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.category = category;
+	}
+
 	public long getId() {
 		return id;
 	}
@@ -33,7 +40,7 @@ public class ContactDto implements Serializable {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getCategory() {
+	public String getCategory(String string) {
 		return category;
 	}
 	public void setCategory(String category) {

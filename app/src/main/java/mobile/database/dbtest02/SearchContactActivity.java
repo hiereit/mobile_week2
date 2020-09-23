@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class SearchContactActivity extends AppCompatActivity {
 
 	EditText etSearchName;
@@ -27,14 +29,18 @@ public class SearchContactActivity extends AppCompatActivity {
 	
 	
 	public void onClick(View v) {
+		SQLiteDatabase myDB = helper.getReadableDatabase();
 		switch(v.getId()) {
-		case R.id.btnSearchContactSave:
-//			DB 검색 작업 수행
+			case R.id.btnSearchContactSave:
+				//			DB 검색 작업 수행
+				Cursor cursor = myDB.rawQuery("SELECT * FROM " + ContactDBHelper.TABLE_NAME, null);
 
-			break;
-		case R.id.btnClose :
-			finish();
-			break;
+
+
+				break;
+			case R.id.btnClose :
+				finish();
+				break;
 		}
 	}
 	
