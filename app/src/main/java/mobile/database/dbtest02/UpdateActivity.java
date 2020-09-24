@@ -24,6 +24,7 @@ public class UpdateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update);
 
         user_id = getIntent().getStringExtra("_id");
+
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
         etCategory = findViewById(R.id.etCategory);
@@ -37,6 +38,7 @@ public class UpdateActivity extends AppCompatActivity {
             case R.id.btnUpdateContact:
 //                DB 데이터 업데이트 작업 수행
 //                int up_id = Integer.parseInt(user_id);
+
                 String upName = etName.getText().toString();
                 String upPhone = etPhone.getText().toString();
                 String upCat = etCategory.getText().toString();
@@ -47,7 +49,7 @@ public class UpdateActivity extends AppCompatActivity {
                 row.put(ContactDBHelper.COL_PHONE, upPhone);
                 row.put(ContactDBHelper.COL_CATEGORY, upCat);
 
-                String whereClause = "id=?";
+                String whereClause = "_id=?";
                 String[] whereArgs = new String[]{user_id};
 
                 myDB.update(ContactDBHelper.TABLE_NAME, row, whereClause, whereArgs);
